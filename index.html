@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title"><i class="fas fa-cloud-sun"></i> Weather Dashboard</h1>
+                <p class="subtitle">Get real-time weather information for any location</p>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-container">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Enter city name (e.g., London, New York, Tokyo)..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            <div id="searchSuggestions" class="search-suggestions"></div>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+
+        <!-- Current Weather Section -->
+        <div class="weather-grid">
+            <div id="currentWeather" class="current-weather card">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading weather data...
+                </div>
+            </div>
+
+            <!-- Additional Info Section -->
+            <div id="additionalInfo" class="additional-info card" style="display: none;">
+                <h2>Additional Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-eye"></i>
+                        <div>
+                            <span class="label">Visibility</span>
+                            <span id="visibility" class="value">--</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-compress"></i>
+                        <div>
+                            <span class="label">Pressure</span>
+                            <span id="pressure" class="value">--</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-tint"></i>
+                        <div>
+                            <span class="label">Humidity</span>
+                            <span id="humidityInfo" class="value">--</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-wind"></i>
+                        <div>
+                            <span class="label">Wind Speed</span>
+                            <span id="windInfo" class="value">--</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-arrow-up"></i>
+                        <div>
+                            <span class="label">Max Temperature</span>
+                            <span id="maxTemp" class="value">--</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-arrow-down"></i>
+                        <div>
+                            <span class="label">Min Temperature</span>
+                            <span id="minTemp" class="value">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5-Day Forecast Section -->
+        <div id="forecastSection" class="forecast-section card" style="display: none;">
+            <h2>5-Day Forecast</h2>
+            <div id="forecastContainer" class="forecast-grid"></div>
+        </div>
+
+        <!-- Recent Searches Section -->
+        <div id="recentSearchesSection" class="recent-searches card" style="display: none;">
+            <h2>Recent Searches</h2>
+            <div id="recentSearchesList" class="recent-list"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Weather data powered by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a></p>
+            <p>Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
